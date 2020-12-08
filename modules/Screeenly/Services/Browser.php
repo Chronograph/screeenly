@@ -3,7 +3,6 @@
 namespace Screeenly\Services;
 
 use Exception;
-use Screeenly\Entities\Screenshot;
 
 class Browser
 {
@@ -56,8 +55,8 @@ class Browser
      */
     public function delay($delay = 1000)
     {
-        if ($delay > 10000) {
-            throw new Exception('Delay can not exceed 10 seconds / 10000 miliseconds');
+        if ($delay > 15000) {
+            throw new Exception('Delay can not exceed 15 seconds / 15000 miliseconds');
         }
 
         $this->delay = $delay;
