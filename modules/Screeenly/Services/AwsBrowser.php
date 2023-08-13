@@ -6,13 +6,13 @@ use Illuminate\Support\Facades\Storage;
 use Screeenly\Contracts\CanCaptureScreenshot;
 use Screeenly\Entities\Screenshot;
 use Screeenly\Entities\Url;
-use Spatie\Browsershot\Browsershot;
+use Wnx\SidecarBrowsershot\BrowsershotLambda;
 
-class ChromeBrowser extends Browser implements CanCaptureScreenshot
+class AwsBrowser extends Browser implements CanCaptureScreenshot
 {
     public function capture(Url $url, $filename)
     {
-        $browser = Browsershot::url($url->getUrl())
+        $browser = BrowsershotLambda::url($url->getUrl())
             ->ignoreHttpsErrors()
             ->windowSize($this->width, is_null($this->height) ? 768 : $this->height)
             ->timeout(30)
